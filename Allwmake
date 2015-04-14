@@ -8,3 +8,10 @@ wmake libso porousBoundaryConditions
 wmake libso porousModels
 wmake impesFoam
 wmake anisoImpesFoam
+
+if isMinGW; then
+
+  wmakeVerifyExeDependencies impesFoam || wmake all impesFoam
+  wmakeVerifyExeDependencies anisoImpesFoam || wmake all anisoImpesFoam
+
+fi
